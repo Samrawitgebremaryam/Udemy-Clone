@@ -1,0 +1,53 @@
+.outerDiv {
+  width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  color: var(--gray);
+}
+
+.innerDiv {
+  width: 80%;
+  height: 100%;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ttl {
+  font-size: 1.5rem;
+  color: rgb(103, 101, 101);
+}
+
+.brands {
+  
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.brands img {
+  width: 100px;
+  margin: 0.5rem 1rem
+  
+}
+@media screen and (max-width: 768px) {
+  .img {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .innerDiv {
+    width: 90%;
+  }
+
+  .img {
+    margin: 0.5rem;
+  }
+}
