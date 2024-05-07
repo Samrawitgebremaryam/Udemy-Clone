@@ -24,7 +24,7 @@ const categories = [
 export const TopCategories = () => {
    return ( 
    <div>
-    <div className='ml-9 mt-5 font-bold' >
+    <div className='ml-9 mt-5 font-bold ' >
     <h2>Top Categories</h2>
     </div>
 
