@@ -7,6 +7,7 @@ const usersRouter = express.Router();
 
 const {registerUser, loginUser,verifyEmail} = require('../controller/user.controller');
 const validateRegistration = require('../middleware/validation.middleware');
+// const getLoginDetails = require('../middleware/loginDetails.middleware');
 
 usersRouter.post('/register', validateRegistration() ,registerUser);
 usersRouter.get('/verify-email', verifyEmail);

@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const User = require('../model/user.mongo');
-const { sendEmailWithTemplate } = require('../services/emailService');
+const { sendEmailWithTemplate, sendLogin } = require('../services/emailService');
 const {generateAccessToken, verifyAccessToken} = require('../services/tokenService');
 
 
@@ -44,7 +44,8 @@ async function registerUser(req, res) {
 
 
 async function loginUser(req, res) {
-  const { email, password } = req.body;
+  const { email, password, loginDetails } = req.body;
+  console.log(req);
 
   try {
 
@@ -64,14 +65,24 @@ async function loginUser(req, res) {
       }
     };
 
+    
+    const sendgridPayload = {
+      "firstName": user.firstName,
+
+    };
+    
+    sendLogin(user.email, sendgridPayload);
+
     jwt.sign(payload, process.env.REFRESH_TOKEN, { expiresIn: 3600 }, (err, token) => {
       if (err) throw err;
       res.json({ token });
     });
+
+
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
-  }
+  } 
 }
 
 

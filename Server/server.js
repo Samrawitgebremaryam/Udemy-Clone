@@ -21,7 +21,10 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 const usersRouter = require('./routes/user.route');
+const coursesRouter = require('./routes/courses.router');
 
+const localUrl = "mongodb://localhost:27017/udemy-clone"
+ 
 const API_VERSION = '/v1';
 
 mongoose.connect(mongo_uri)
@@ -36,5 +39,6 @@ mongoose.connect(mongo_uri)
 
 
 app.use(`${API_VERSION}/users`, usersRouter);
+app.use(`${API_VERSION}/courses`, coursesRouter);
 
 module.exports = app;
