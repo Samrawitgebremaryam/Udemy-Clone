@@ -1,45 +1,16 @@
 import React, { useEffect, useState, createContext } from 'react';
 import './App.css'
-import HomePage from './pages/Homepage';
-import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-export const Data = createContext();
-export const FetchState = createContext();
+import { Route, Routes } from 'react-router-dom';
+import Homepage from './pages/Homepage'
 function App() {
-  const [coursesData, setCoursesData] = useState({});
-		const [fetched, setAsFetched] = useState(false);
 
-	useEffect(() => {
-		const getData = () => {
-			fetch('https://api.npoint.io/97d7e0d71e507947a59f')
-				.then((response) => response.json())
-				.then((jsonFile) => {
-					setCoursesData(jsonFile['data']);
-					setAsFetched(true);
-				});
-		};
-		getData();
-	}, []);
-
-  return (
+ return (
     
-      <div className='App'>
-        <Data.Provider value={coursesData}>
-						<FetchState.Provider value={fetched}>
-							 <Header/>
+      <div >
           <Routes>
-         <Route path="/" element={<HomePage />} />
-				 <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
+         <Route path="/" element={<Homepage />} />
         </Routes>
-				<Footer/>
-				</FetchState.Provider>
-        </Data.Provider>
-				 
+	
       </div>
       
   )

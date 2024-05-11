@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Review from "./Review.jsx";
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styles from './ReviewSection.module.css';
 
 function ReviewSection() {
@@ -13,20 +12,25 @@ function ReviewSection() {
       .then(data => setReviews(data.json_array));
   }, [id]);
 
+  const Review = ({ review, userName }) => (
+    <div className={styles.reviewSection}>
+      <p className={styles.reviewText}>{review}</p>
+      <p className={styles.username}>{userName}</p>
+      {/* You can include additional elements for displaying rating, etc. */}
+    </div>
+  );
+
   return (
     <div className={styles.container}>
       <div className="mt-20 ">
         <h2 className=" text-2xl font-ubuntu font-bold mb-4">How learners like you are achieving their goals</h2>
         <div className={styles.reviewSectionWrapper}>
           {reviews.map((review, index) => (
-             
             <Review
               key={index}
               review={review.review}
               userName={review.userName}
-          
             />
-             
           ))}
         </div>
       </div>

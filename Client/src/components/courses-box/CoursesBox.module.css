@@ -22,14 +22,15 @@
 .exploreButton {
   background-color: #fff;
   border: 2px solid black;
-  padding: 10px;
-  margin: 0.5rem;
+  padding: 15px;
+  margin: 20px;
   font-weight: bold;
 }
 
 .exploreButton:hover {
   cursor: pointer;
   background-color: whitesmoke;
+  outline: none;
 }
 
 @media only screen and (min-width: 500px) {

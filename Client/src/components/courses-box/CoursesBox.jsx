@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './CoursesBox.module.css';
 import CoursesContainer from '../courses-container/CoursesContainer';
+import styles from './CoursesBox.module.css';
 const CoursesBox = ({ sectionData }) => {
 	const {
 		 title,
@@ -15,7 +15,7 @@ const CoursesBox = ({ sectionData }) => {
 			<button className={styles.exploreButton}>
 				Explore {title}
 			</button>
-			<CoursesContainer courses={courses}></CoursesContainer>
+			<CoursesContainer courses={courses}/>
 		</section>
 	);
 };

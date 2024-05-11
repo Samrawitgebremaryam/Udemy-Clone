@@ -1,9 +1,7 @@
 .container {
   width: 100%;
   background-color: #f9f9f9;
-  /* Example background color */
   padding: 20px;
-  /* Adjust padding as needed */
 }
 
 
@@ -11,33 +9,30 @@
   overflow-x: auto;
   /* Enable horizontal scrolling */
   white-space: nowrap;
-
+  &::-webkit-scrollbar {
+      display: none;
+    }
 }
 
 .reviewSection {
   background-color: white;
   border: 1px solid #ccc;
-  border-radius: 5px;
   padding: 10px;
   margin-right: 20px;
-  /* Add margin between review boxes */
   display: inline-block;
-  /* Display review boxes inline */
   width: 400px;
-  /* Adjust width as needed */
   height: 300px;
-  /* Adjust height as needed */
   box-sizing: border-box;
   vertical-align: top;
-  /* Align review boxes at the top */
-  overflow-x:hidden;
-  /* Enable vertical scrolling for long text */
+  overflow:hidden;
 }
 
 .reviewText {
   font-size: 1.2rem;
   word-wrap: break-word;
-  /* Allow long words to break and wrap */
+  overflow: hidden;
+    text-overflow: ellipsis;
+  
 }
 
 .username {
