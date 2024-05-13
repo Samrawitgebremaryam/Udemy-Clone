@@ -1,0 +1,75 @@
+.instructor-section {
+    display: flex;
+    flex-direction: row; /* Default is row for larger screens */
+    align-items: center;
+    justify-content: space-around;
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin: 0 150px;
+  }
+  
+  .image-Container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .text-Container {
+    max-width: 600px;
+    margin-left: 30px;
+  }
+  
+  .text-Container h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .text-Container p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .start-teaching-button {
+    padding: 8px 16px;
+    margin-bottom: 28px;
+    border: 1px solid black;
+    color: rgb(238, 233, 233);
+    background-color: rgb(41, 40, 40);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .start-teaching-button:hover {
+    background-color: #4f5052;
+  }
+  
+  /* Media Queries for smaller screens */
+  @media (max-width: 768px) {
+    .instructor-section {
+      flex-direction: column; 
+      margin: 0 20px; 
+      padding: 10px;
+    }
+  
+    .image-Container, .text-Container {
+      width: 100%; /* Full width for small devices */
+      margin-left: 0; 
+      text-align: center;
+    }
+  
+    .text-Container h1 {
+      font-size: 2rem; 
+    }
+  
+    .text-Container p {
+      font-size: 1rem; 
+    }
+  
+    .start-teaching-button {
+      width: auto; 
+      margin: 10px auto;
+    }
+  }
+  

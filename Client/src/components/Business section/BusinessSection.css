@@ -1,0 +1,113 @@
+.business-section { 
+    margin: 100px 200px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff; 
+  }
+  
+  .content {
+    max-width: 600px; 
+    
+  }
+ 
+  .content h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    max-width: 60rem;
+    margin: 0 auto;
+   font-weight: bold;
+  }
+  
+  .content ul {
+    list-style: disc inside; /* or simply 'disc' depending on layout needs */
+    padding: 0;
+   
+  }
+  
+  
+  .content ul li {
+    margin-bottom: 10px;
+    font-size: 17px;
+  }
+  .business-description {
+    margin-right: 40px;
+  }
+  .buttons { 
+    margin-top: 20px;
+  }
+  
+  
+  .button1, .button2 {
+    padding: 8px 16px;
+    margin-bottom: 28px;
+    border: 1px solid black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button1 {
+    color: rgb(238, 233, 233);
+    background-color: rgb(41, 40, 40);
+  }
+  
+  .button2 {
+    margin-left: 16px; /* Only on the second button for spacing between buttons */
+    color: rgb(41, 40, 40);
+    background-color: transparent;
+  }
+  
+  
+  .button1:hover {
+    background-color: #4f5052; 
+  }
+  .button2:hover {
+    background-color: #dfe1e2;
+}
+  .image-container img {
+    height: 400px;
+  }
+  
+  /* Media Queries for smaller screens */
+@media (max-width: 768px) {
+    .business-section {
+        flex-direction: column;
+        margin: 20px;
+        padding: 10px;
+        align-items: center; /* Center-align items when stacked */
+    }
+
+    .image-container {
+        order: -1; /* Places the image above everything else */
+        width: 100%; /* Full width for the image */
+        height: auto; /* Adjust height automatically */
+    }
+
+    .content, .business-description {
+        max-width: 100%; /* Full width */
+        margin: 0; /* Remove side margins */
+        text-align: center; /* Center-align text */
+    }
+
+    .content h1, .content ul li {
+        font-size: 1.5rem; /* Smaller font size for heading */
+    }
+
+    .content ul li {
+        font-size: 15px; /* Smaller font size for list items */
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center; /* Center-align buttons */
+    }
+
+    .button2 {
+        margin-left: 20px; 
+        margin-top: 10px; 
+    }
+}

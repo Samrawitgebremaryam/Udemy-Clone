@@ -38,7 +38,7 @@ const data = [
 
 const TopicsByCategory = () => {
   return ( 
-    <div>
+    <div className='category-box'>
         <div className='Title'> Featuerd topics by category </div>
            <div className="categories-container">
       {data.map((category, index) => (
@@ -46,13 +46,15 @@ const TopicsByCategory = () => {
           <h3>{category.category}</h3>
           {category.topics.map((topic, idx) => (
             <div key={idx} className="topic">
-              <span>{topic.name}</span>
-              <span>{topic.learners} learners</span>
+              <p>{topic.name}</p>
+              <span>{topic.learners} learners</span> 
+              
             </div>
           ))}
         </div>
       ))}
     </div>
+  <button className='px-4 py-2 ml-4 mb-7 border border-black text-base font-bold text-black-900 hover:bg-gray-200'>Explore more topics</button>
     </div>
  
   );

@@ -14,17 +14,17 @@ const categories = [
     { id: 2, name: 'Development', image: developmentImage },
     { id: 3, name: 'Marketing', image: marketingImage },
     { id: 4, name: 'IT and Software', image: softwareImage },
-    { id: 5, name: 'Personal development', image: personalImage },
-    { id: 6, name: 'Business', image: businessImage },
-    { id: 7, name: ' Photography', image: photographyImage },
-    { id: 8, name: 'Music', image: musicImage }
+    { id: 4, name: 'Personal development', image: personalImage },
+    { id: 4, name: 'Business', image: businessImage },
+    { id: 4, name: ' Photography', image: photographyImage },
+    { id: 4, name: 'Music', image: musicImage }
 
   ];
 
 export const TopCategories = () => {
    return ( 
    <div>
-    <div className='ml-9 mt-5 font-bold ' >
+    <div className="title" >
     <h2>Top Categories</h2>
     </div>
 
