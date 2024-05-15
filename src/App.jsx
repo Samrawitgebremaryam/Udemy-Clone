@@ -1,15 +1,19 @@
-import React from 'react';
-import './index.css';
-import HomePage from './pages/Homepage';
-// import LoginPage from './pages/LoginPage';
-//import SignUpPage from './pages/SignUpPage';
-
+import React, { useEffect, useState, createContext } from 'react';
+import './App.css'
+import { Route, Routes } from 'react-router-dom';
+import Homepage from './pages/Homepage'
 function App() {
-  return (
-    <div>
-    <HomePage/>
-    </div>
-  );
+
+ return (
+    
+      <div >
+          <Routes>
+         <Route path="/" element={<Homepage />} />
+        </Routes>
+	
+      </div>
+      
+  )
 }
 
-export default App;
+export default App

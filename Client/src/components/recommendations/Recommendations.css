@@ -1,0 +1,81 @@
+
+.videoCardContainer {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  margin-left: 20px;
+  &::-webkit-scrollbar {
+      display: none;
+    }
+}
+
+.videoCard {
+  display: inline-block;
+  width: 500px;
+  height: 480px;
+     text-align: left;
+  cursor: pointer;
+  margin-right: 20px;
+  overflow: hidden;
+}
+
+.videoCard img {
+  margin-bottom: 8px;
+  transition: 100ms;
+}
+
+.videoCard h3 {
+  color: #3c3b37;
+  font-size: 16px;
+  margin: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.videoCard p {
+  color: #7c7a72;
+  font-size: 13px;
+  margin: 4px 0px;
+  overflow: hidden;
+    white-space: nowrap;
+     text-overflow: ellipsis;
+}
+
+.videoCard .ratingDiv {
+  display: flex;
+  align-items: center;
+}
+
+.videoCard .rating {
+  color: #a34d0a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.videoCard .stars {
+  color: #eb8a2f;
+}
+
+.videoCard .stars * {
+  height: 16px;
+  width: 16px;
+}
+
+
+.videoCard .price {
+  margin: 5px 0px;
+}
+
+.videoCard .bestsellerBadge {
+  width: 30%;
+  padding: 3px 2px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 3px;
+  background-color: #ffe799;
+  color: #593d00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

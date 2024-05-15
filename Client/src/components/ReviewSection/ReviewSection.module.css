@@ -1,0 +1,41 @@
+.container {
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+
+.reviewSectionWrapper {
+  overflow-x: auto;
+  /* Enable horizontal scrolling */
+  white-space: nowrap;
+  &::-webkit-scrollbar {
+      display: none;
+    }
+}
+
+.reviewSection {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-right: 20px;
+  display: inline-block;
+  width: 400px;
+  height: 300px;
+  box-sizing: border-box;
+  vertical-align: top;
+  overflow:hidden;
+}
+
+.reviewText {
+  font-size: 1.2rem;
+  word-wrap: break-word;
+  overflow: hidden;
+    text-overflow: ellipsis;
+  
+}
+
+.username {
+  font-size: 1rem;
+  font-style: italic;
+}

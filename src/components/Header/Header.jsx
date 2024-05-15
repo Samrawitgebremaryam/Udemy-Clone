@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShoppingCartIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
-
+import { Link } from "react-router-dom";
 const Header = () => {
     return (
 <header className="bg-white  py-4 border border-gray-300 rounded-none shadow-md">
@@ -30,12 +30,16 @@ const Header = () => {
                         </button>
                     </div>
                     <ShoppingCartIcon className="h-6 w-6 text-black-600 hover:text-purple-800 cursor-pointer"/>
+                    <Link to="/login">
                     <button className="px-4 py-2 border border-black text-base font-bold text-black-900 hover:bg-gray-200">
                         Log in
                     </button>
+                    </Link>
+                    <Link to="/signup">
                     <button className="px-4 py-2 bg-black text-white border border-transparent text-base font-bold rounded-none hover:bg-purple-800">
                         Sign up
                     </button>
+                    </Link>
                     <div className="p-1 border border-black rounded-none">
                         <GlobeAltIcon className="h-6 w-6 text-black-600 hover:text-purple-800 cursor-pointer"/>
                     </div>

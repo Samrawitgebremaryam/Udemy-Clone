@@ -1,0 +1,51 @@
+.new-to-udemy {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  box-sizing: border-box;
+ 
+}
+
+.new-to-udemy article {
+  width: 100%;
+  max-width: 35rem;
+  height: 15rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 6px rgb(225, 221, 221);
+  margin: 2rem 0 0 2rem;
+}
+
+.new-to-udemy p:first-child {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.new-to-udemy p:last-child {
+  font-weight: lighter;
+  color: dimgrey;
+  font-size: 0.8rem;
+}
+
+@media only screen and (min-width: 500px) {
+  .new-to-udemy p:first-child {
+    font-size: 1.6rem;
+  }
+
+  .new-to-udemy p:last-child {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 921px) {
+  .new-to-udemy {
+    width: 90%;
+  }
+
+  .new-to-udemy p:first-child {
+    font-size: 2.5rem;
+  }
+}

@@ -1,16 +1,23 @@
-import React from 'react';
-import './index.css';
-// import HomePage from './pages/Homepage';
-// import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
-
+import React, { useEffect, useState, createContext } from 'react';
+import './App.css'
+import { Route, Routes } from 'react-router-dom';
+import Homepage from './pages/Homepage'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 function App() {
-  return (
-    <div>
-      <SignUpPage/>
+
+ return (
+    
+      <div >
+          <Header/>
+          <Routes>
+         <Route path="/" element={<Homepage />} />
+        </Routes>
+        <Footer/>
+	
+      </div>
       
-    </div>
-  );
+  )
 }
 
-export default App;
+export default App
