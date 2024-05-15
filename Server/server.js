@@ -12,7 +12,7 @@ const mongo_uri = process.env.MONGO_URI;
 const app = express();
 const server = http.createServer(app);
 
-const PORT = 3000;
+const PORT = 6000;
 
 app.use(cors());
 app.use(express.json());
@@ -26,7 +26,7 @@ const API_VERSION = '/v1';
 
 mongoose.connect(mongo_uri)
   .then(() => {
-    app.listen(3000, () => {
+    app.listen(6000, () => {
       console.log('Server is running on port 3000');
     });
   })

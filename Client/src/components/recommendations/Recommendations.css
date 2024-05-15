@@ -12,7 +12,7 @@
 .videoCard {
   display: inline-block;
   width: 500px;
-  height: 480px;
+  height: auto;
      text-align: left;
   cursor: pointer;
   margin-right: 20px;
