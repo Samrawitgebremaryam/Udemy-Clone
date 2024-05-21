@@ -2,6 +2,7 @@ import React from "react";
 import "./Recommendations.css";
 import sectionData from '../../courses';
 import StarIcon from '@mui/icons-material/Star';
+import { useNavigate } from 'react-router-dom';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 function Recommendations() {
   const allCourses = [];
@@ -9,13 +10,18 @@ function Recommendations() {
     // Concatenate the courses from each section into allCourses array
     allCourses.push(...section.courses);
   });
+  const navigate = useNavigate();
+
+    const handleClick = (id) => {
+        navigate(`/Udemy-Clone/courses/${id}`);
+    };
   return (
     <div >
       <div className=" text-left">
         <h3 className="text-3xl text-black font-bold  mb-4 ml-8">Learners are viewing</h3>
         <div className="videoCardContainer">
        {allCourses.map((course) => (
-        <div className='videoCard ' key={course.id}>
+        <div className='videoCard' key={course.id} onClick={() => handleClick(course.id)}>
           <img className='courseImg' src={course.image} alt='courseImg'></img>
           <h3>{course.title}</h3>
           <p>{course.instructors[0].name}</p>
