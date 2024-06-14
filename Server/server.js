@@ -6,7 +6,9 @@ const http = require("http");
 const cors = require("cors");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const paymentRoute = require("./routes/payment.route");
+const uri = "mongodb+srv://<admin>:<admin>@udemy-clone.e75bb9r.mongodb.net/?retryWrites=true&w=majority&appName=udemy-clone";
+
+
 
 const mongo_uri = process.env.MONGO_URI;
 
@@ -20,16 +22,17 @@ app.use(express.json());
 
 app.use(morgan("dev"));
 
-const usersRouter = require("./routes/user.route");
 
 const usersRouter = require('./routes/user.route');
 const coursesRouter = require('./routes/courses.router');
+// const paymentRoute = require('./routes/payment.route');
 
 const localUrl = "mongodb://localhost:27017/udemy-clone"
  
 const API_VERSION = '/v1';
+console.log("mongo_uri", mongo_uri);
 
-mongoose.connect(mongo_uri)
+mongoose.connect(localUrl)
   .then(() => {
     app.listen(6000, () => {
       console.log("Server is running on port 3000");
@@ -40,7 +43,8 @@ mongoose.connect(mongo_uri)
   });
 
 app.use(`${API_VERSION}/users`, usersRouter);
-app.use("/api", paymentRoute);
+// app.use(`${API_VERSION}/payment`, paymentRoute);
+// app.use("/api", paymentRoute);
 app.use(`${API_VERSION}/courses`, coursesRouter);
 
 module.exports = app;
