@@ -24,14 +24,17 @@ const upload = multer({
 
 // Check file type
 function checkFileType(file, cb) {
-    const filetypes = /mp4|pdf/; // Allowed file extensions
+    const filetypes = /mp4|pdf|mov/; // Allowed file extensions
     const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = filetypes.test(file.mimetype);
+
+    // Add correct MIME types for .mov files
+    const mimetypes = /video\/mp4|application\/pdf|video\/quicktime/;
+    const mimetype = mimetypes.test(file.mimetype);
 
     if (mimetype && extname) {
         return cb(null, true);
     } else {
-        cb('Error: Videos and PDFs Only!');
+        cb('Error: Videos (MP4, MOV) and PDFs Only!');
     }
 }
 

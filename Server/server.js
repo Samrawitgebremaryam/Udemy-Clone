@@ -6,7 +6,7 @@ const http = require("http");
 const cors = require("cors");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const uri = "mongodb+srv://<admin>:<admin>@udemy-clone.e75bb9r.mongodb.net/?retryWrites=true&w=majority&appName=udemy-clone";
+const uri = "mongodb+srv://admin:admin@udemy-clone.e75bb9r.mongodb.net/?retryWrites=true&w=majority&appName=udemy-clone";
 
 
 
@@ -30,9 +30,9 @@ const coursesRouter = require('./routes/courses.router');
 const localUrl = "mongodb://localhost:27017/udemy-clone"
  
 const API_VERSION = '/v1';
-console.log("mongo_uri", mongo_uri);
+console.log("mongo_uri", localUrl);
 
-mongoose.connect(localUrl)
+mongoose.connect(uri)
   .then(() => {
     app.listen(6000, () => {
       console.log("Server is running on port 3000");
