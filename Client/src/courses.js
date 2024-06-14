@@ -26,8 +26,29 @@ const sectionData = {
           "image": "https://img-c.udemycdn.com/user/100x100/150405524_94b0_4.jpg"
         }
       ],
-      "price": 14.99
+      "price": 14.99,
+      objectives_summary: [
+        { text: "Install Python on Windows, Linux and Mac", completed: false },
+        { text: "Use programming fundamentals to build a calculator", completed: false },
+        { text: "Find additional packages to expand the functionality of Python", completed: false },
+        { text: "Code an app for web scraping", completed: false },
+        { text: "Create web apps using Webpy", completed: false },
+        { text: "Program a web browser using PyQt", completed: true },
+        { text: "Setup an IDE", completed: false },
+        { text: "Use advanced Python concepts to code a role playing game", completed: false },
+        { text: "Install essential modules", completed: false },
+        { text: "Create a NoSQL database using PyMongo", completed: false },
+        { text: "Django web server setup", completed: false },
+        { text: "Use Matplotlib and Pandas for data visualization", completed: true }
+      ],
+      content_length_video: 3600, // Length in seconds
+        num_additional_assets: 5,
+        article_count: 1,
+        full_lifetime_access: true,
+        access_on_mobile_tv: true,
+        certificate_of_completion: true,
     },
+  
     {
     "id": 123456,
     "title": "Machine Learning, Data Science and Deep Learning with Python",
