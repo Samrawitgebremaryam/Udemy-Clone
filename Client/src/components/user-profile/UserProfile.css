@@ -48,3 +48,41 @@
 .btn-primary:hover {
   background-color: #0056b3;
 }
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.file-input {
+  display: block;
+  margin-top: 5px;
+}
+
+.file-input-label {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.file-input-label:hover {
+  background-color: #0056b3;
+}
+
+.file-input-label span {
+  display: inline-block;
+  margin-left: 8px;
+}

@@ -69,6 +69,16 @@ const UserProfileView = () => {
       {editMode ? (
         <form onSubmit={handleSubmit}>
           <div className="form-group">
+            <label htmlFor="avatar">Avatar:</label>
+            <input
+              type="file"
+              id="avatar"
+              name="avatar"
+              onChange={handleChange}
+              className="form-control-file"
+            />
+          </div>
+          <div className="form-group">
             <label htmlFor="firstName">First Name:</label>
             <input
               type="text"
@@ -116,16 +126,7 @@ const UserProfileView = () => {
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="avatar">Avatar:</label>
-            <input
-              type="file"
-              id="avatar"
-              name="avatar"
-              onChange={handleChange}
-              className="form-control-file"
-            />
-          </div>
+
           <button type="submit" className="btn btn-primary mr-2">
             Save Changes
           </button>
@@ -139,6 +140,12 @@ const UserProfileView = () => {
         </form>
       ) : (
         <div className="profile-details">
+          {user.avatar && (
+            <div className="avatar-container">
+              <img src={user.avatar} alt="Avatar" className="avatar" />
+            </div>
+          )}
+
           <p>
             <strong>First Name:</strong> {user.firstName}
           </p>
