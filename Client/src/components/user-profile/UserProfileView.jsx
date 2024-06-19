@@ -11,6 +11,7 @@ const UserProfileView = () => {
     lastName: "",
     email: "",
     username: "",
+    avatar: null, // For handling file upload
   });
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const UserProfileView = () => {
       try {
         const response = await axios.get("/api/v1/users/profile");
         setUser(response.data);
-        setFormData(response.data); // Initializing form data with user data
+        setFormData(response.data); // Initialize form data with user data
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -27,15 +28,31 @@ const UserProfileView = () => {
   }, []);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === "avatar") {
+      setFormData({ ...formData, avatar: e.target.files[0] });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put("/api/v1/users/profile", formData); // Adjusting the API endpoint as needed
+      const formDataUpload = new FormData();
+      formDataUpload.append("firstName", formData.firstName);
+      formDataUpload.append("lastName", formData.lastName);
+      formDataUpload.append("email", formData.email);
+      formDataUpload.append("username", formData.username);
+      formDataUpload.append("avatar", formData.avatar); // Appending avatar file to FormData
+
+      await axios.put("/api/v1/users/profile", formDataUpload, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
       setUser(formData); // Updating user state with edited data
-      setEditMode(false); // Exiting edit mode
+      setEditMode(false); // Exit edit mode
     } catch (error) {
       console.error("Error updating user profile:", error);
     }
@@ -97,6 +114,16 @@ const UserProfileView = () => {
               onChange={handleChange}
               className="form-control"
               required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="avatar">Avatar:</label>
+            <input
+              type="file"
+              id="avatar"
+              name="avatar"
+              onChange={handleChange}
+              className="form-control-file"
             />
           </div>
           <button type="submit" className="btn btn-primary mr-2">

@@ -10,6 +10,7 @@ const {
   generateAccessToken,
   verifyAccessToken,
 } = require("../services/tokenService");
+const { uploadAvatar } = require("../services/fileUploadService");
 
 async function registerUser(req, res) {
   const { firstName, lastName, username, email, password } = req.body;
@@ -45,7 +46,6 @@ async function registerUser(req, res) {
 
 async function loginUser(req, res) {
   const { email, password, loginDetails } = req.body;
-  console.log(req);
 
   try {
     const user = await User.findOne({ email });
@@ -87,7 +87,6 @@ async function loginUser(req, res) {
 
 async function verifyEmail(req, res) {
   const token = req.query.token;
-  console.log(token);
   if (!token) {
     return res.status(400).json({ error: "Token is missing" });
   }
@@ -128,13 +127,25 @@ async function updateUserProfile(req, res) {
       return res.status(404).json({ msg: "User not found" });
     }
 
-    user = await User.findByIdAndUpdate(
-      userId,
-      { firstName, lastName, email, username },
-      { new: true }
-    ).select("-password");
+    // Handle avatar upload if present
+    uploadAvatar(req, res, async function (err) {
+      if (err instanceof multer.MulterError) {
+        return res.status(500).json({ error: "Avatar upload error" });
+      } else if (err) {
+        return res.status(500).json({ error: err.message });
+      }
 
-    res.json(user);
+      const { filename } = req.file; // Access uploaded file details
+      const avatar = filename ? `uploads/avatars/${filename}` : user.avatar; // Set avatar path or retain existing
+
+      user = await User.findByIdAndUpdate(
+        userId,
+        { firstName, lastName, email, username, avatar },
+        { new: true }
+      ).select("-password");
+
+      res.json(user);
+    });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
