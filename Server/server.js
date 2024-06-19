@@ -23,8 +23,8 @@ app.use(morgan("dev"));
 
 const usersRouter = require("./routes/user.route");
 const coursesRouter = require("./routes/courses.router");
-// const paymentRoute = require('./routes/payment.route');
-// const reviewRouter = require("./routes/review.route");
+const paymentRoute = require("./routes/payment.route");
+const reviewRouter = require("./routes/review.route");
 
 const localUrl = "mongodb://localhost:27017/udemy-clone";
 
@@ -43,9 +43,8 @@ mongoose
   });
 
 app.use(`${API_VERSION}/users`, usersRouter);
-// app.use(`${API_VERSION}/payment`, paymentRoute);
-// app.use("/api", paymentRoute);
-// app.use(`${API_VERSION}/reviews`, reviewRouter);
+app.use(`${API_VERSION}/payment`, paymentRoute);
+app.use(`${API_VERSION}/reviews`, reviewRouter);
 app.use(`${API_VERSION}/courses`, coursesRouter);
 
 module.exports = app;
